@@ -10,7 +10,8 @@
       package: 
         name: epel-release
         state: present
-      when: ansible_distribution == "CentOS"
+      when: ansible_facts['distribution'] == "CentOS"
+      #when: ansible_distribution == "CentOS"
       
     - name: download pip script
       get_url:
@@ -44,6 +45,7 @@
       docker_container:
         name: webapp
         image: httpd
+        state: started
         ports:
           - "80:80"
         volumes:
