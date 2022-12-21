@@ -1,6 +1,7 @@
 ---
 - name: "Installation d'un conteneur apache"
   hosts: prod
+  gather_facts: true
   become: true
 #  vars:
 #    ansible_sudo_pass: admin
@@ -29,10 +30,16 @@
 	   - wget
     	state: present
       when: ansible_distribution == "CentOS"
+    - name: Template a file to /etc/file.conf
+      ansible.builtin.template:
+    	src: ./templates/index.html.j2
+    	dest: ./templates/index.html
+    	mode: '0644'
     - name: Create apache a container
       docker_container:
         name: webapp
         image: httpd
         ports:
           - "80:80"
-            
+        volumes:
+          - ./templates/index.html:/usr/local/apache2/htdocs/index.html
