@@ -11,8 +11,8 @@ ansible-playbook -i hosts.yml -vvv deploy.yml
 Push code 
 git init
 git add .
-git config -global user.email "examplen@example.example"
-git config -global user.name "votre nom"
+git config -global user.email "mounir.hammouti93270@gmail.com"
+git config -global user.name "mounir-hammouti"
 git commit -m "webapp first version"
-git add origin
-git push origin master
+git remote add origin https://github.com/mounir-hammouti/ansible-formation.git
+git push origin -u main
