@@ -8,8 +8,7 @@
 #  vars:
 #    ansible_sudo_pass: admin
   pre_tasks:
-    - name: install Epel repo
-      package:
+    - name: install Epel git and wget
       ansible.builtin.yum:
          name:
             - epel-release
@@ -36,7 +35,7 @@
          mode: '0755'
     - name: Template index.html file
       ansible.builtin.template:
-        src: "/home/admin/templates/index.html.j2"
+        src: "/home/admin/ansible-formation/templates/index.html.j2"
         dest: "/home/admin/templates/index.html"
         mode: '0644'
     - name: Create apache a container
