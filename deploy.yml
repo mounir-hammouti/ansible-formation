@@ -3,16 +3,21 @@
   hosts: prod
   gather_facts: true
   become: true
+  vars_files:
+    - ./files/secrets/credentials.vault
 #  vars:
 #    ansible_sudo_pass: admin
   pre_tasks:
     - name: install Epel repo
-      package: 
-        name: epel-release
-        state: present
+      package:
+      ansible.builtin.yum:
+         name:
+            - epel-release
+            - git
+            - wget
+         state: present
       when: ansible_facts['distribution'] == "CentOS"
       #when: ansible_distribution == "CentOS"
-      
     - name: download pip script
       get_url:
         url: https://bootstrap.pypa.io/pip/2.7/get-pip.py
@@ -24,13 +29,6 @@
         name: docker-py
       
   tasks:
-    - name: Install git and wget
-      ansible.builtin.yum:
-         name: 
-            - git
-            - wget
-         state: present
-      when: ansible_distribution == "CentOS"
     - name: Create a directory if it does not exist
       ansible.builtin.file:
          path: /home/admin/templates
