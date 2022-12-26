@@ -51,6 +51,18 @@ Pour décrypter le contenu encrypté par Ansible, écrire son mot de passe dans 
 echo 'my_vault_password' > .vault_pass
 ```
 
+## Installation des roles Ansible Galaxy
+
+```sh
+ansible-galaxy install adnanhodzic.containerized
+```
+
+ou 
+
+```sh
+ansible-galaxy install -r roles/requirements.yml
+```
+
 ## Lancement des playbooks
 
 Pour exécuter les playbooks, lancer les commandes suivantes:
@@ -63,4 +75,10 @@ ou
 
 ```sh
 ansible-playbook deploy_with_role.yml
+```
+
+ou
+
+```sh
+ansible-playbook wordpress.yml
 ```
