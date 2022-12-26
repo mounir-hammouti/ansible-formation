@@ -35,8 +35,8 @@ Pour récupérer le code permettant d'exécuter Ansible, lancer les commandes su
 ```sh
 git clone https://github.com/mounir-hammouti/ansible-formation.git
 cd ansible-formation
-git config --global user.email "email"
-git config --global user.name "username"
+git config --global user.email "mounir.hammouti93270@gmail.com"
+git config --global user.name "mounir-hammouti"
 ```
 
 ## Modification du fichier hosts
