@@ -1,0 +1,29 @@
+- Encrypter un fichier (On utilisera comme password de chiffrement toto)
+ansible-vault encrypt files/secrets/credentials.yml
+
+- Lire un fichier
+ansible-vault view files/secrets/credentials.yml
+
+- Editer un fichier
+ansible-vault edit files/secrets/credentials.yml
+
+- Changer le mdp vault
+ansible-vault rekey files/secrets/credentials.yml
+
+- Decrypter un fichier
+ansible-vault decrypt files/secrets/credentials.yml
+
+- Lancer ansible en lui passant le mots de passe de décryptage
+ansible-playbook -i hosts.yml --ask-vault-pass deploy.yml
+
+- Si ansible.cfg contient l'endroit du fichier hosts
+ansible-playbook --ask-vault-pass deploy.yml
+
+- Si le mdp est ecrit dans un fichier vault_pass et que ansible.cfg contient l'endroit de ce fichier
+ansible-playbook deploy.yml
+
+- créer un couple ssh de clés publique/privées
+ssh-keygen -t rsa
+
+- copier la clés publique sur le serveurs distant
+ssh-copy-id admin@10.0.0.4

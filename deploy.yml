@@ -3,8 +3,8 @@
   hosts: prod
   gather_facts: true
   become: true
-  vars_files:
-    - ./files/secrets/credentials.vault
+#  vars_files:
+#    - ./files/secrets/credentials.vault
 #  vars:
 #    ansible_sudo_pass: admin
   pre_tasks:
