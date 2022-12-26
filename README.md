@@ -43,6 +43,14 @@ git config --global user.name "mounir-hammouti"
 
 Remplacer la valeur de la variable ansible_host dans le fichier hosts.yml par l'adresse ip fournie sur l'interface du container client.
 
+## Ajouter le mot de passe pour Ansible Vault
+
+Pour décrypter le contenu encrypté par Ansible, écrire son mot de passe dans un fichier avec la commande suivante:
+
+```sh
+echo 'my_vault_password' > .vault_pass
+```
+
 ## Lancement des playbooks
 
 Pour exécuter les playbooks, lancer les commandes suivantes:
