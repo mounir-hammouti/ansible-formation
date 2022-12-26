@@ -29,6 +29,7 @@ cd
 
 ## Récupération du code
 
+Se connecter au container Ansible.
 Pour récupérer le code permettant d'exécuter Ansible, lancer les commandes suivantes:
 
 ```sh
